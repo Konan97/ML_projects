@@ -3,17 +3,17 @@ public class AttackTitan implements Titans {
 	
 	private static final double PI = Math.PI;
 	
-	private double radius;
+	private String name;
 	
 	//constructor
-	public AttackTitan(double radius) {
-		this.radius = radius;
+	public AttackTitan() {
+		name = "Eren Yeager";
 	}
 	
 	// Implement three abstract methods from the interface
 	
-	public double area() {
-		return AttackTitan.PI * radius;
+	public String name() {
+		return name;
 	}
 	
 	@Override
@@ -34,7 +34,8 @@ public class AttackTitan implements Titans {
 	}
 	
 	public static void main(String[] args) {
-		AttackTitan attacktitan = new AttackTitan(3);
+		AttackTitan attacktitan = new AttackTitan();
+		System.out.println(attacktitan.name);
 		System.out.println(attacktitan.abilities());
 
 		ReinerBraun armoredTitan = new ReinerBraun(3);
