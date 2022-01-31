@@ -6,17 +6,27 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.Reader;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+
+import org.junit.Before;
 import org.junit.jupiter.api.Test;
 
 class DocumentsProcessorTest {
 
+	
 	@Test
 	void testProcessDocuments() throws FileNotFoundException {
-		Reader fis = new FileReader("sm_doc_set");
-		DocumentIterator ws = new DocumentIterator(fis, 3);
-		assertTrue(ws.hasNext());
-		assertEquals("smdocset", ws.next());
+		DocumentsProcessor DocumentsMap = new DocumentsProcessor();
+		Map<String, List<String>> testMap = DocumentsMap.processDocuments("sm_doc_set", 3);
+		System.out.println(testMap);
+		
+		
+		
 	}
+
 
 	@Test
 	void testStoreNWordSequences() {

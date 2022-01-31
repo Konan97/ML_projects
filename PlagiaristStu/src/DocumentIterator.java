@@ -13,16 +13,16 @@ public class DocumentIterator implements Iterator<String> {
 
     private Reader r; // character stream
     private int    c = -1; // count
-    private int n = 0;
+    
     
 
-    public DocumentIterator(Reader r, int n) {
+    public DocumentIterator(Reader r) {
     	// store the reader that we w'll use as the source of our data
         if (r == null) {
         	throw new IllegalArgumentException("null reader provided");
         }
         this.r = r;
-        this.n = n;
+        
         // get ready to start reading words from our document
         skipNonLetters();
     }
@@ -61,15 +61,16 @@ public class DocumentIterator implements Iterator<String> {
 
         try {
         	
-        	for (int i = 0; i < n; i++) {
+        	
         		
             while (Character.isLetter(this.c)) {
                 answer = answer + (char)this.c;
+                answer = answer.toLowerCase();
                 this.c = this.r.read();
                 
             }
             skipNonLetters();
-        	}
+        	
         } catch (IOException e) {
             throw new NoSuchElementException();
         }
